@@ -14,7 +14,8 @@ def main():
     running = True
 
     ball = Ball(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-    debug = Debug(ball.get_y, screen)
+    debug = Debug(ball.get_speed_vector, screen)
+    ball.speed_vector = [1, 0]
 
     while running:
         screen.fill((100, 100, 100))
