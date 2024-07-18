@@ -1,5 +1,6 @@
 from Utility.Settings import *
 from GameObjects.Ball import Ball
+from GameObjects.Flipper import Flipper
 from Utility.Debug import Debug
 from Core.DeltaTime import DeltaTime
 
@@ -14,11 +15,12 @@ def main():
     running = True
 
     ball = Ball(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-    debug = Debug(ball.get_speed_vector, screen)
+    flipper = Flipper(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 100, 100, 20)
+    debug = Debug(flipper.get_angle, screen)
     ball.speed_vector = [1, 0]
 
     while running:
-        screen.fill((100, 100, 100))
+        screen.fill((80, 80, 100))
         delta_time.update()
 
         for event in pygame.event.get():
@@ -26,7 +28,9 @@ def main():
                 running = False
 
         ball.update(delta_time.delta_time)
+        flipper.update(delta_time.delta_time)
         ball.draw(screen)
+        flipper.draw(screen)
         debug.show()
 
         pygame.display.flip()

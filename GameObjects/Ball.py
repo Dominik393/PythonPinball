@@ -7,7 +7,7 @@ class Ball(PhysicsObject):
         self._y = y
         self.radius = 10
         self.color = (255, 255, 255)
-        self.gravity = 0.7
+        self.gravity = 3
         self._speed_vector = [0, 0]
         self.horizontal_air_drag = 0.999
         self.bounce = 0.85
